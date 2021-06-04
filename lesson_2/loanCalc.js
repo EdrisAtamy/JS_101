@@ -61,7 +61,7 @@ function getLoanDuration() {
 }
 
 function getAPR() {
-  console.log('What is the APR of the loan? (Can input as whole number or decimal)');
+  console.log('What is the APR of the loan? (Can input as whole number, decimal, or 0 for no interest loans)');
   let monthlyInterest = READLINE.prompt();
 
   while (monthlyInterest < 0) {
