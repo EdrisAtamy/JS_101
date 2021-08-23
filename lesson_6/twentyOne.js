@@ -324,7 +324,7 @@ do {
     if (bust(playerHand)) {
       prompt('Player Busts - Dealer Wins Round!');
       scores.dealer += 1;
-      showRoundWinner();    
+      showRoundWinner();
       if (scores.player === 5 || scores.dealer === 5) continue;
       else prompt('Next Round');
       continue;
@@ -339,7 +339,7 @@ do {
     if (bust(dealerHand)) {
       prompt('Dealer Busts - Player Wins Round!');
       scores.player += 1;
-      showRoundWinner();    
+      showRoundWinner();
       if (scores.player === 5 || scores.dealer === 5) continue;
       else prompt('Next Round');
       continue;
@@ -359,14 +359,14 @@ do {
       }
     } else if (getHandWinner() === false) {
       if (handTotal(dealerHand) === TWENTY_ONE) {
-      prompt('21! Dealer Wins Round!');
-      scores.dealer += 1;
-      showRoundWinner();
-    } else {
-      prompt('Dealer Wins Round!');
-      scores.dealer += 1;
-      showRoundWinner();
-    }
+        prompt('21! Dealer Wins Round!');
+        scores.dealer += 1;
+        showRoundWinner();
+      } else {
+        prompt('Dealer Wins Round!');
+        scores.dealer += 1;
+        showRoundWinner();
+      }
     }
 
     if (scores.player === 5 || scores.dealer === 5) continue;
