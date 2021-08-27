@@ -10,7 +10,7 @@ const CARD_FACE_VALUES = {
   K: {name: 'King', value: 10},
   Q: {name: 'Queen', value: 10},
   J: {name: 'Jack', value: 10}
-}
+};
 const TARGET_SCORE = 21;
 const PLAY_CHOICES = ['yes', 'y', 'no', 'n'];
 const HIT_OR_STAY = ['hit', 'h', 'stay', 's'];
@@ -84,7 +84,7 @@ function shuffle(array) {
 
 function initializeDeck() {
   let deck = [];
-  
+
   for (let key in SUIT_NAMES) {
     for (let count = 2; count <= 10; count++) {
       deck.push([key, String(count)]);
@@ -244,9 +244,9 @@ function bust(hand) {
 function getHandWinner() {
   let player = handTotal(playerHand);
   let dealer = handTotal(dealerHand);
-  
+
   if (player > dealer) {
-    if (handTotal(playerHand) === TARGET_SCORE) {
+    if (player === TARGET_SCORE) {
       prompt('21! Player Wins Round!');
       scores.player += 1;
       showScore();
@@ -256,7 +256,7 @@ function getHandWinner() {
       showScore();
     }
   } else if (dealer > player) {
-    if (handTotal(dealerHand) === TARGET_SCORE) {
+    if (dealer === TARGET_SCORE) {
       prompt('21! Dealer Wins Round!');
       scores.dealer += 1;
       showScore();
@@ -278,7 +278,7 @@ function gameWinner() {
   if (scores.player > scores.dealer) {
     prompt('Player Wins The Game!');
   } else {
-    prompt('Dealer Win The Game!');
+    prompt('Dealer Wins The Game!');
   }
   return undefined;
 }
@@ -328,7 +328,7 @@ do {
       scores.dealer += 1;
       showScore();
       if (scores.player === MAX_WINS || scores.dealer === MAX_WINS) continue;
-      else prompt('Next Round');
+      else prompt('Next Round...');
       if (!nextRound()) break;
       continue;
     }
@@ -341,7 +341,7 @@ do {
       scores.player += 1;
       showScore();
       if (scores.player === MAX_WINS || scores.dealer === MAX_WINS) continue;
-      else prompt('Next Round');
+      else prompt('Next Round...');
       if (!nextRound()) break;
       continue;
     }
