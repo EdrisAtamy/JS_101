@@ -239,7 +239,7 @@ function bust(hand) {
   return handTotal(hand) > TARGET_SCORE;
 }
 
-function getHandWinner() {
+function getRoundWinner() {
   let player = handTotal(playerHand);
   let dealer = handTotal(dealerHand);
 
@@ -351,7 +351,7 @@ do {
       if (!nextRound()) break;
       continue;
     }
-    getHandWinner();
+    getRoundWinner();
 
     if (scores.player === MAX_WINS || scores.dealer === MAX_WINS) continue;
     else prompt('Next Round');
