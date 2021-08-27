@@ -148,11 +148,9 @@ function handTotal(hand) {
     }
   });
 
-  hand.forEach(function (card) {
-    if (card[1] === 'A') {
-      if (handTotal > TARGET_SCORE)  handTotal -= 10;
-    }
-  });
+  hand.filter(face => face === 'A').forEach(_ => {
+    if (handTotal > TARGET_SCORE) handTotal -= 10;
+  })
 
   return handTotal;
 }
