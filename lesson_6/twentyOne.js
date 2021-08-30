@@ -34,13 +34,13 @@ function welcomeMsg() {
   console.log(' '.repeat(12) + '*'.repeat(38) + ' '.repeat(12));
   console.log(' '.repeat(18) + '*'.repeat(26) + ' '.repeat(18));
   console.log('>'.repeat(24) + '   Rules   ' + '<'.repeat(27));
-  console.log('Player vs Dealer, both are dealt a hand of 2-Cards');
-  console.log('On each turn, can choose to either Hit or Stay, add cards to hand or dont');
-  console.log('If when a player hits and the total hand value goes over 21, they bust and lose the round');
-  console.log('At end of round, both players show their hands to see whose total hand value is closer to 21');
-  console.log('21 is the best possible hand, so that will always win the round');
-  console.log('If both players have same total hand value, its a tie and round restarts');
-  console.log('First player to win 5 rounds wins the game!\n');
+  console.log(`Player vs Dealer, both are dealt a hand of 2-Cards
+On each turn, can choose to either Hit or Stay, add cards to hand or dont
+If when a player hits and the total hand value goes over 21, they bust and lose the round
+At end of round, both players show their hands to see whose total hand value is closer to 21
+21 is the best possible hand, so that will always win the round
+If both players have same total hand value, its a tie and round restarts
+First player to win 5 rounds wins the game!\n`);
   return undefined;
 }
 
@@ -282,7 +282,7 @@ function gameWinner() {
 }
 
 function checkForTie() {
-  return handTotal(playerHand) === handTotal(dealerHand) ? true : false;
+  return handTotal(playerHand) === handTotal(dealerHand);
 }
 
 function playerTurnLoop(shuffDeck) {
@@ -306,10 +306,10 @@ function dealerTurnLoop(shuffDeck) {
 welcomeMsg();
 /// Main Game Loop
 do {
-  let start = startGame();
-  if (!start) break;
+  if (!startGame()) break;
 
   while (!(scores.player === MAX_WINS || scores.dealer === MAX_WINS)) {
+    console.clear();
     prompt('Shuffling deck...');
     let deck = initializeDeck();
     resetHands();
